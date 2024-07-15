@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Flight Search App</h1>
+    </header>
+    <main>
+        <form id="flight-search-form">
+            <label for="origin">Origin:</label>
+            <select id="origin">
+                <option value="JFK">JFK</option>
+                <option value="DEL">DEL</option>
+                <option value="SYD">SYD</option>
+                <option value="BOM">BOM</option>
+                <option value="BNE">BNE</option>
+                <option value="BLR">BLR</option>
+            </select>
+            <br><br>
+            
+            <label for="destination">Destination:</label>
+            <select id="destination">
+                <option value="JFK">JFK</option>
+                <option value="DEL">DEL</option>
+                <option value="SYD">SYD</option>
+                <option value="LHR">LHR</option>
+                <option value="CDG">CDG</option>
+                <option value="DOH">DOH</option>
+                <option value="SIN">SIN</option>
+            </select>
+            <br><br>
+            
+            <label for="cabin">Cabin:</label>
+            <select id="cabin">
+                <option value="Economy">Economy</option>
+                <option value="Business">Business</option>
+                <option value="First">First</option>
+            </select>
+            <br><br>
+            
+            <button type="button" onclick="searchFlights()">Search</button>
+        </form>
+
+        <div id="flight-results">
+            <!-- Flight cards will be rendered here -->
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+    
+</body>
+</html>
