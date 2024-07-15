@@ -16,7 +16,7 @@
             <select id="origin">
                 <option value="JFK">JFK</option>
                 <option value="DEL">DEL</option>
-                <option value="SYD">SYD</option>
+                <option value="SYD" selected>SYD</option>
                 <option value="BOM">BOM</option>
                 <option value="BNE">BNE</option>
                 <option value="BLR">BLR</option>
@@ -25,7 +25,7 @@
             
             <label for="destination">Destination:</label>
             <select id="destination">
-                <option value="JFK">JFK</option>
+                <option value="JFK" selected>JFK</option>
                 <option value="DEL">DEL</option>
                 <option value="SYD">SYD</option>
                 <option value="LHR">LHR</option>
@@ -38,13 +38,14 @@
             <label for="cabin">Cabin:</label>
             <select id="cabin">
                 <option value="Economy">Economy</option>
-                <option value="Business">Business</option>
+                <option value="Business" selected>Business</option>
                 <option value="First">First</option>
             </select>
             <br><br>
             
             <button type="button" onclick="searchFlights()">Search</button>
         </form>
+        
 
         <div id="flight-results">
             <!-- Flight cards will be rendered here -->

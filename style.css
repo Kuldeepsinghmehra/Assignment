@@ -21,3 +21,8 @@ button {
     margin-top: 10px;
     border-radius: 5px;
 }
+.flight-card img {
+    width: 100px; /* Adjust the width as per your logo size */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px;
+}

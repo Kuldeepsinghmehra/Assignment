@@ -1,3 +1,4 @@
+const image='./logo.jpg'
 async function searchFlights() {
     console.log("search button clicked")
     const headers = {
@@ -42,17 +43,31 @@ async function searchFlights() {
         const response = await axios.post('https://cardgpt.in/apitest', json_data, { headers });
         console.log("API RESPONSE:",response)
         console.log("API DATA",response.data)
-        renderFlightResults(response.data.data);
+        renderFlightResults(response.data.data,origin,destination);
     } catch (error) {
         console.error('Error fetching flight data:', error);
     }
 }
 
-function renderFlightResults(data) {
+function renderFlightResults(data,origin,destination) {
     const flightResultsDiv = document.getElementById('flight-results');
 
     // Clear previous results
     flightResultsDiv.innerHTML = '';
+    const currentDate = new Date();
+    const departureDate = new Date(currentDate);
+    departureDate.setDate(currentDate.getDate() + 3);
+
+    const arrivalDate = new Date(departureDate);
+    arrivalDate.setDate(departureDate.getDate() + 5); // Example: arrival 5 days after departure
+
+    // Format dates to YYYY-MM-DD format
+    const formattedDepartureDate = departureDate.toISOString().split('T')[0];
+    const formattedArrivalDate = arrivalDate.toISOString().split('T')[0];
+
+     
+    
+
 
     data.slice(0, 2).forEach(flight => { // Displaying only first 2 results as cards
         const partnerProgram = flight.partner_program;
@@ -63,11 +78,19 @@ function renderFlightResults(data) {
         const minFirstMiles = flight.min_first_miles;
         const minFirstTax = flight.min_first_tax;
 
+        const route = `${origin} -> ${destination}`;
+        const departureRange = `${formattedDepartureDate}`;
+        const dateRange = `${formattedDepartureDate} - ${formattedArrivalDate}`;
+
+
         const flightCardDiv = document.createElement('div');
         flightCardDiv.classList.add('flight-card');
 
         flightCardDiv.innerHTML = `
+           <img src=${image} alt="this is logo">
             <h3>${partnerProgram}</h3>
+            <p>${route}</p>
+            <p>${dateRange}</p>
             <p>Economy: Miles - ${minEconomyMiles}, Tax - ${minEconomyTax}</p>
             <p>Business: Miles - ${minBusinessMiles || 'N/A'}, Tax - ${minBusinessTax || 'N/A'}</p>
             <p>First: Miles - ${minFirstMiles || 'N/A'}, Tax - ${minFirstTax || 'N/A'}</p>
