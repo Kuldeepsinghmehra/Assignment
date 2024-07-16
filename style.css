@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
 }
 
@@ -22,7 +22,90 @@ button {
     border-radius: 5px;
 }
 .flight-card img {
-    width: 100px; /* Adjust the width as per your logo size */
-    height: auto; /* Maintain aspect ratio */
+    width: 100px;
+    height: auto; 
     margin-bottom: 10px;
+} */
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color:rgb(18, 31, 10)
+  }
+  .Heading{
+    color:rgb(139, 143, 139);
+  }
+
+  
+  form {
+    max-width:480px;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  form label {
+    align-self::flex-start;
+    font-weight: bold;
+    color:rgb(139, 143, 139);
+  }
+  
+ form select {
+    padding: 5px;
+    border-radius: 3px;
+    border:2px solid rgb(47, 48, 47);
+    color:rgb(139, 143, 139);
+    width:270px;
+    height:50px;
+    background-color:rgb(30, 31, 30);
+    
+  }
+  #cabin{
+    background-color:rgb(28, 29, 8);
+  }
+
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #flight-results{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+    padding: 20px;
+}
+
+.flight-card {
+    background-color: #004d00; 
+    color: #fff; /* Text color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px; /* Adjust the card width as needed */
+    text-align: center;
+}
+
+.flight-card img {
+    width: 50px; /* Adjust the logo size as needed */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.flight-card h3 {
+    margin: 10px 0;
+}
+
+.flight-card p, .flight-card h4 {
+    margin: 5px 0;
 }

@@ -65,10 +65,6 @@ function renderFlightResults(data,origin,destination) {
     const formattedDepartureDate = departureDate.toISOString().split('T')[0];
     const formattedArrivalDate = arrivalDate.toISOString().split('T')[0];
 
-     
-    
-
-
     data.slice(0, 2).forEach(flight => { // Displaying only first 2 results as cards
         const partnerProgram = flight.partner_program;
         const minEconomyMiles = flight.min_economy_miles;
@@ -79,21 +75,32 @@ function renderFlightResults(data,origin,destination) {
         const minFirstTax = flight.min_first_tax;
 
         const route = `${origin} -> ${destination}`;
-        const departureRange = `${formattedDepartureDate}`;
-        const dateRange = `${formattedDepartureDate} - ${formattedArrivalDate}`;
+        const dateRange = `${formattedDepartureDate} -  ${formattedArrivalDate}`;
 
 
         const flightCardDiv = document.createElement('div');
         flightCardDiv.classList.add('flight-card');
+        const businessMiles = minBusinessMiles ? `<div><h1>${minBusinessMiles}</h1><span> + $${minBusinessTax}</span></div>` : '<h1>N/A</h1>';
+
+// Define economy miles and tax display logic
+const economyMiles = minEconomyMiles ? `<div><h1>${minEconomyMiles}</h1><span> + $${minEconomyTax}</span></div>` : `<h1>${minEconomyMiles}</h1>`;
+
+// Define first miles and tax display logic
+const firstMiles = minFirstMiles ? `<div><h1>${minFirstMiles}</h1><span> + $${minFirstTax}</span></div>` : '<h1>N/A</h1>';
 
         flightCardDiv.innerHTML = `
-           <img src=${image} alt="this is logo">
-            <h3>${partnerProgram}</h3>
-            <p>${route}</p>
-            <p>${dateRange}</p>
-            <p>Economy: Miles - ${minEconomyMiles}, Tax - ${minEconomyTax}</p>
-            <p>Business: Miles - ${minBusinessMiles || 'N/A'}, Tax - ${minBusinessTax || 'N/A'}</p>
-            <p>First: Miles - ${minFirstMiles || 'N/A'}, Tax - ${minFirstTax || 'N/A'}</p>
+    <img src=${image} alt="this is logo">
+    <h2>${partnerProgram}</h2>
+    <p>${route}</p>
+    <p>${dateRange}</p>
+    ${businessMiles}
+    <span>Min Business Miles</span>
+    ${economyMiles}
+    <span>Min Economy Miles</span>
+    ${firstMiles}
+    <span>Min First Miles</span>
+           
+   
         `;
 
         flightResultsDiv.appendChild(flightCardDiv);
