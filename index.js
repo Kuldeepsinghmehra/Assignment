@@ -80,13 +80,13 @@ function renderFlightResults(data,origin,destination) {
 
         const flightCardDiv = document.createElement('div');
         flightCardDiv.classList.add('flight-card');
-        const businessMiles = minBusinessMiles ? `<div><h1>${minBusinessMiles}</h1><span> + $${minBusinessTax}</span></div>` : '<h1>N/A</h1>';
+        const businessMiles = minBusinessMiles ? `<div class="outputDiv"><h1>${minBusinessMiles}</h1><span class="outputspan"> + $${minBusinessTax}</span></div>` : '<h1>N/A</h1>';
 
 // Define economy miles and tax display logic
-const economyMiles = minEconomyMiles ? `<div><h1>${minEconomyMiles}</h1><span> + $${minEconomyTax}</span></div>` : `<h1>${minEconomyMiles}</h1>`;
+const economyMiles = minEconomyMiles ? `<div class="outputDiv"><h1>${minEconomyMiles}</h1><span class="outputspan"> + $${minEconomyTax}</span></div>` : `<h1>${minEconomyMiles}</h1>`;
 
 // Define first miles and tax display logic
-const firstMiles = minFirstMiles ? `<div><h1>${minFirstMiles}</h1><span> + $${minFirstTax}</span></div>` : '<h1>N/A</h1>';
+const firstMiles = minFirstMiles ? `<div class="outputDiv"><h1>${minFirstMiles}</h1><span class="outputspan"> + $${minFirstTax}</span></div>` : '<h1>N/A</h1>';
 
         flightCardDiv.innerHTML = `
     <img src=${image} alt="this is logo">

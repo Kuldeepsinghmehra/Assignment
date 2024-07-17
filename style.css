@@ -71,7 +71,7 @@ body {
 
   
   button {
-    background-color: #007bff;
+    background-color: rgb(66, 245, 194);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -108,4 +108,17 @@ body {
 
 .flight-card p, .flight-card h4 {
     margin: 5px 0;
+}
+.outputDiv{
+  display:flex;
+}
+.outputspan{
+  margin-top: 40px;
+  margin-left: 12px;
+}
+span{
+  color:#ccc;
+}
+h2{
+  color:#ffffffd1;
 }
