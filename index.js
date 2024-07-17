@@ -52,20 +52,20 @@ async function searchFlights() {
 function renderFlightResults(data,origin,destination) {
     const flightResultsDiv = document.getElementById('flight-results');
 
-    // Clear previous results
+   
     flightResultsDiv.innerHTML = '';
     const currentDate = new Date();
     const departureDate = new Date(currentDate);
     departureDate.setDate(currentDate.getDate() + 3);
 
     const arrivalDate = new Date(departureDate);
-    arrivalDate.setDate(departureDate.getDate() + 5); // Example: arrival 5 days after departure
+    arrivalDate.setDate(departureDate.getDate() + 5); 
 
-    // Format dates to YYYY-MM-DD format
+    
     const formattedDepartureDate = departureDate.toISOString().split('T')[0];
     const formattedArrivalDate = arrivalDate.toISOString().split('T')[0];
 
-    data.slice(0, 2).forEach(flight => { // Displaying only first 2 results as cards
+    data.slice(0, 2).forEach(flight => { 
         const partnerProgram = flight.partner_program;
         const minEconomyMiles = flight.min_economy_miles;
         const minEconomyTax = flight.min_economy_tax;
@@ -82,10 +82,10 @@ function renderFlightResults(data,origin,destination) {
         flightCardDiv.classList.add('flight-card');
         const businessMiles = minBusinessMiles ? `<div class="outputDiv"><h1>${minBusinessMiles}</h1><span class="outputspan"> + $${minBusinessTax}</span></div>` : '<h1>N/A</h1>';
 
-// Define economy miles and tax display logic
+
 const economyMiles = minEconomyMiles ? `<div class="outputDiv"><h1>${minEconomyMiles}</h1><span class="outputspan"> + $${minEconomyTax}</span></div>` : `<h1>${minEconomyMiles}</h1>`;
 
-// Define first miles and tax display logic
+
 const firstMiles = minFirstMiles ? `<div class="outputDiv"><h1>${minFirstMiles}</h1><span class="outputspan"> + $${minFirstTax}</span></div>` : '<h1>N/A</h1>';
 
      flightCardDiv.innerHTML = `
