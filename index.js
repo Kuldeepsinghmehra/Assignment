@@ -88,7 +88,7 @@ const economyMiles = minEconomyMiles ? `<div class="outputDiv"><h1>${minEconomyM
 // Define first miles and tax display logic
 const firstMiles = minFirstMiles ? `<div class="outputDiv"><h1>${minFirstMiles}</h1><span class="outputspan"> + $${minFirstTax}</span></div>` : '<h1>N/A</h1>';
 
-        flightCardDiv.innerHTML = `
+     flightCardDiv.innerHTML = `
     <img src=${image} alt="this is logo">
     <h2>${partnerProgram}</h2>
     <p>${route}</p>
